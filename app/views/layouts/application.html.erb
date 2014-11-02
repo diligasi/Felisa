@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>♥ Felipe & Isaclaudia ♥</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Ubuntu:400,500" type="text/css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Rouge+Script" type="text/css">
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= favicon_link_tag image_url('favicon.ico') %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body class="background" data-img-width="1920" data-img-height="1080">
+    <div id="page-wrap">
+      <!-- header -->
+      <%= render 'layouts/application_header' %>
+      <!-- /header -->
+
+      <div id="page-content">
+        <%#= render 'layouts/side_bar_menu' %>
+        <%= yield %>
+      </div>
+
+      <!-- footer -->
+      <%= render 'layouts/application_footer' %>
+      <!-- /footer -->
+    </div>
+  </body>
+</html>

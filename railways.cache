@@ -1,0 +1,4 @@
+           Prefix Verb URI Pattern                  Controller#Action
+static_page_index GET  /static_page/index(.:format) static_page#index
+static_page_guest GET  /static_page/guest(.:format) static_page#guest
+             root GET  /                            static_page#index

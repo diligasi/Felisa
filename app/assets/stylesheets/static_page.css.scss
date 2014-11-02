@@ -1,0 +1,22 @@
+// Place all the styles related to the static_page controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// Tela da lista de presentes
+#loading {
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+  display: block;
+}
+.iframe-container {
+  width: 1024px;
+  margin: 0 auto;
+  min-height: 2300px;
+  display: none;
+}
+iframe {
+  width: 100%;
+  height: 2220px;
+  background: #fff;
+}

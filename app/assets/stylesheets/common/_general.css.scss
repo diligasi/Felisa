@@ -1,0 +1,171 @@
+/**********************************************************************************************************
+ * Nesta folha de estilo estão todas as configurações de que afetam o sistema como de forma geral. Padrões
+ * de font, tamanhos, margens, etc.
+ *
+ **********************************************************************************************************/
+
+/**********************************************************************************************************
+ * Icones para serem utilizados no projeto, para mais informações procure sobre IcoMoon no google ou acesse
+ * o link: https://icomoon.io/#docs
+ *
+ **********************************************************************************************************/
+@font-face {
+  font-family: 'icomoon';
+  src: font_url('icomoon.eot?ii754z');
+  src: font_url('icomoon.eot?#iefixii754z') format('embedded-opentype'),
+  font_url('icomoon.woff?ii754z') format('woff'),
+  font_url('icomoon.ttf?ii754z') format('truetype'),
+  font_url('icomoon.svg?ii754z#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/**********************************************************************************************************
+ * Se livrando do objeto de segurança bancário maldito que ferra o layout do sistema. Para mais informaçõe
+ * segue o link explicando a bruxaria:
+ * http://stackoverflow.com/questions/17138446/what-is-application-gas-events-abn-object-in-wordpress-editor
+ *
+ **********************************************************************************************************/
+object[type^="application/gas-events"] {
+  display: none;
+}
+
+/**********************************************************************************************************
+ * Regra para o clearfix, ou seja, corrige o comportamento dos elementos que ao possuírem a propriedade
+ * float 'rompem' as barreiras de sua div pai. Um exemplo deste comportamento pode ser visto no link abaixo:
+ * http://pt-br.learnlayout.com/clearfix.html
+ *
+ **********************************************************************************************************/
+.clearfix:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+.clearfix { display: inline-block; }
+.clearfix { display: block; zoom: 1; }
+
+/**********************************************************************************************************
+ * Componentes de formulárioS e botões
+ **********************************************************************************************************/
+input {
+  -moz-transition: all 0.2s ease-out 0s;
+  -webkit-transition: all 0.2s ease-out 0s;
+  transition: all 0.2s ease-out 0s;
+
+  &[type="text"], &[type="password"] {
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+    min-height: 36px;
+    font-size: 14px !important;
+    border: 0;
+  }
+}
+button {
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  //color: inherit;
+  //background: none;
+  cursor: pointer;
+  padding: 12px 80px;
+  display: inline-block;
+  text-transform: uppercase !important;
+  letter-spacing: 1px;
+  font-weight: 700;
+  outline: none;
+  position: relative;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  border-radius: 2px;
+
+  &:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+}
+.submit-effect {
+  overflow: hidden;
+
+  &:before {
+    position: absolute;
+    left: 0;
+    width: 40%;
+    font-size: 160%;
+    line-height: 0.8;
+  }
+
+  &.btn-activated {
+    -webkit-animation: fadeOutText 0.5s;
+    -moz-animation: fadeOutText 0.5s;
+    animation: fadeOutText 0.5s;
+  }
+
+  &.btn-activated:before {
+    -webkit-animation: moveToRight 0.5s;
+    -moz-animation: moveToRight 0.5s;
+    animation: moveToRight 0.5s;
+  }
+}
+@-webkit-keyframes fadeOutText {
+  0% { color: transparent; }
+  80% { color: transparent; }
+  100% { color: #fff; }
+}
+@-moz-keyframes fadeOutText {
+  0% { color: transparent; }
+  80% { color: transparent; }
+  100% { color: #fff; }
+}
+@keyframes fadeOutText {
+  0% { color: transparent; }
+  80% { color: transparent; }
+  100% { color: #fff; }
+}
+@-webkit-keyframes moveToRight {
+  80% { -webkit-transform: translateX(250%); }
+  81% { opacity: 1; -webkit-transform: translateX(250%); }
+  82% { opacity: 0; -webkit-transform: translateX(250%); }
+  83% { opacity: 0; -webkit-transform: translateX(-50%); }
+  84% { opacity: 1; -webkit-transform: translateX(-50%);  }
+  100% { -webkit-transform: translateX(0%); }
+}
+@-moz-keyframes moveToRight {
+  80% { -moz-transform: translateX(250%); }
+  81% { opacity: 1; -moz-transform: translateX(250%); }
+  82% { opacity: 0; -moz-transform: translateX(250%); }
+  83% { opacity: 0; -moz-transform: translateX(-50%); }
+  84% { opacity: 1; -moz-transform: translateX(-50%);  }
+  100% { -moz-transform: translateX(0%); }
+}
+@keyframes moveToRight {
+  80% { transform: translateX(250%); }
+  81% { opacity: 1; transform: translateX(250%); }
+  82% { opacity: 0; transform: translateX(250%); }
+  83% { opacity: 0; transform: translateX(-50%); }
+  84% { opacity: 1; transform: translateX(-50%);  }
+  100% { transform: translateX(0%); }
+}
+
+/**********************************************************************************************************
+ * Classes para uso geral
+ **********************************************************************************************************/
+.right{
+  float: right;
+}
+.left {
+  float: left;
+}
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}

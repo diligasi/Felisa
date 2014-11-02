@@ -1,0 +1,14 @@
+<div id="loading" class="centered">
+    <%= image_tag image_url('loading.gif') %>
+    <br />
+    Carregando....
+</div>
+
+<div class="iframe-container">
+  <iframe id="presents-iframe" name="lista_ponto_frio" scrolling="no" frameborder="0" src="http://www.pontofrio.com.br/Site/ListaGerenciadaLandingPage.aspx?idListaCompra=399082">
+      <p>Puts!!! Aparentimente seu navegador não consegue rodar um IFRAME (seja lá o que for isso rsrsrsrs), enfim,
+         <%= link_to 'clique aqui', 'http://www.pontofrio.com.br/Site/ListaGerenciadaLandingPage.aspx?idListaCompra=399082' %>
+         e você vai conseguir acessar a lista de presentes.
+      </p>
+  </iframe>
+</div>

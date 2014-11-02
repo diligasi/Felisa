@@ -1,0 +1,25 @@
+#main-menu {
+  display: inline-block;
+  font-size: 14px;
+  height: 100%;
+  padding-top: 12px;
+
+  li {
+    float: left;
+    height: 100%;
+
+    a {
+      color: #fff;
+      display: block;
+      text-decoration: none;
+      font-weight: bold;
+      height: 100%;
+      padding: 0 10px;
+
+      &:hover {
+        color: #ff7512;
+        border-bottom: 3px solid #ff7512;
+      }
+    }
+  }
+}

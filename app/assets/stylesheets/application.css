@@ -1,0 +1,133 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+/****************************************************************************************************************
+ * Resetando valores padrão dos navegadores
+ ****************************************************************************************************************/
+* {
+    font-family: 'Ubuntu', sans-serif;
+    box-sizing: border-box;
+}
+html, body, address, blockquote, div, dl, form, h1, h2, h3, h4, h5, h6, ol, p, pre, table, ul,
+dd, dt, li, tbody, td, tfoot, th, thead, tr, button, del, ins, map, object, a, abbr, acronym, b,
+bdo, big, br, cite, code, dfn, em, i, img, kbd, q, samp, small, span, strong, sub, sup, tt,
+var, legend, fieldset {
+    margin: 0;
+    padding: 0;
+}
+img, fieldset {
+    border: 0;
+}
+/******* Setando largura máxima das imagens para 100% *******/
+img {
+    max-width: 100%;
+    height: auto;
+    width: auto\9; /******* hack para IE8 *******/
+}
+/******* Setando elemento do HTML5 para block *******/
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+/****************************************************************************************************************
+ * Aparência geral
+ ****************************************************************************************************************/
+html {
+    height: 100%;
+}
+body {
+    font-size: .81em/150%;
+    height: 100%;
+}
+* html #page-wrap {
+    height: 100%; /******* hack para IE6 que trata height como min-height *******/
+}
+a {
+    text-decoration: none;
+    outline: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+p {
+    margin: 0 0 1.2em;
+    padding: 0;
+}
+/******* Listas *******/
+ul, ol {
+    padding: 0;
+    list-style: none;
+}
+li {
+    margin: 0 0 .5em 0;
+    padding: 0;
+}
+/******* headings *******/
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.4em;
+    margin: 20px 0 .4em;
+}
+h1 {
+    font-size: 2em;
+}
+h2 {
+    font-size: 1.6em;
+}
+h3 {
+    font-size: 1.4em;
+}
+h4 {
+    font-size: 1.2em;
+}
+h5 {
+    font-size: 1.1em;
+}
+h6 {
+    font-size: 1em;
+}
+
+/****************************************************************************************************************
+ * Estrutura
+ ****************************************************************************************************************/
+#page-wrap {
+    min-height: 100%;
+    position: relative;
+    width: 100%;
+}
+
+/****************************************************************************************************************
+ * Conteúdo do sistema
+ ****************************************************************************************************************/
+#page-content {
+    padding: 42px 0 32px 0;	/******* Valor inicial (32px no top) utilizado na tela de login apenas. *******/
+    width: 100%;
+    overflow: auto;
+}
+
+/****************************************************************************************************************
+ * Barra de configurações lateral
+ ****************************************************************************************************************/
+#page-sidebar {
+    width: 280px;
+    float: right;
+    margin: 30px 0 30px 0;
+    display: none;	/******* Valor inicial utilizado na tela de login apenas *******/
+}
+
+/****************************************************************************************************************
+ * Abaixo serão concatenados no ambiente de produção os estilos presentes nos arquivos scss
+ *
+ ****************************************************************************************************************/
