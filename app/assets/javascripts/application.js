@@ -57,4 +57,15 @@ $(window).on('resize', function(){
 /* Funções a serem inicializadas com o sistema */
 $(document).on('page:load', function(){
     backgroundResize();
+
+    $('#presents-iframe').on('load', function () {
+        $('#loading').hide();
+        $('.iframe-container').show();
+    });
+
+    $('#presents-iframe').on('change', function () {
+        alert('flsdfsdkfds');
+        $('#loading').show();
+        $('.iframe-container').hide();
+    });
 });
