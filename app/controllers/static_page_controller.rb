@@ -5,6 +5,9 @@ class StaticPageController < ApplicationController
   def gift_list
   end
 
+  def ceremony
+  end
+
   def suppliers
   end
 end

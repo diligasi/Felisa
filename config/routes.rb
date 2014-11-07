@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+  resources :guests
+
   #get 'static_page/index'
-  get '/lista_presentes' => 'static_page#gift_list', :as => :lista_presentes
-  get '/fornecedores' => 'static_page#suppliers', :as => :fornecedores
+  get '/lista_presentes' => 'static_page#gift_list', :as => :gift_list
+  get '/cerimonia' => 'static_page#ceremony', :as => :ceremony
+  get '/fornecedores' => 'static_page#suppliers', :as => :suppliers
 
   root 'static_page#index'
 

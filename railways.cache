@@ -1,4 +1,12 @@
-           Prefix Verb URI Pattern                  Controller#Action
-static_page_index GET  /static_page/index(.:format) static_page#index
-static_page_guest GET  /static_page/guest(.:format) static_page#guest
-             root GET  /                            static_page#index
+         Prefix Verb   URI Pattern                Controller#Action
+         guests GET    /guests(.:format)          guests#index
+                POST   /guests(.:format)          guests#create
+      new_guest GET    /guests/new(.:format)      guests#new
+     edit_guest GET    /guests/:id/edit(.:format) guests#edit
+          guest GET    /guests/:id(.:format)      guests#show
+                PATCH  /guests/:id(.:format)      guests#update
+                PUT    /guests/:id(.:format)      guests#update
+                DELETE /guests/:id(.:format)      guests#destroy
+lista_presentes GET    /lista_presentes(.:format) static_page#gift_list
+   fornecedores GET    /fornecedores(.:format)    static_page#suppliers
+           root GET    /                          static_page#index
