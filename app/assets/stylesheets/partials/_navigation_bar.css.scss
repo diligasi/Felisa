@@ -19,7 +19,17 @@
       &:hover {
         color: #ff7512;
         border-bottom: 3px solid #ff7512;
+
+        span {
+          &:before {
+            color: #ff7512 !important;
+          }
+        }
       }
+    }
+
+    .leave_btn {
+      padding-top: 3px;
     }
   }
 }

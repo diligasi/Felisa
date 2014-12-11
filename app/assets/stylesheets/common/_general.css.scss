@@ -66,11 +66,11 @@ button {
   //color: inherit;
   //background: none;
   cursor: pointer;
-  padding: 12px 80px;
+  padding: 12px 80px !important;
   display: inline-block;
   text-transform: uppercase !important;
   letter-spacing: 1px;
-  font-weight: 700;
+  font-weight: bold;
   outline: none;
   position: relative;
   -webkit-transition: all 0.3s;
@@ -168,4 +168,31 @@ button {
   -moz-transform: translate(-50%, -50%);
   -o-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
+}
+
+.bnt-apparence {
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  padding: 12px 80px !important;
+  display: inline-block;
+  text-transform: uppercase !important;
+  letter-spacing: 1px;
+  font-weight: bold;
+  outline: none;
+  position: relative;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  border-radius: 2px;
+  background: #ff7512;
+  color: #fff;
+  box-shadow: 0 5px #ff630d;
+  float: right;
+
+  &:hover {
+    background: rgba(255, 117, 18, .8);
+    box-shadow: 0 5px rgba(255, 99, 13, .8);
+  }
 }

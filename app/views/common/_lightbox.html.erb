@@ -1,0 +1,16 @@
+<section id="lightbox">
+  <header>
+    <span id="title">Deixe uma mensagem para os noivos!</span>
+    <span class="icon-close right" />
+  </header>
+  <section class="content clearfix">
+    <%= form_for testimonial, url: save_testimonials_path do |t| %>
+      <%= t.label 'Seu nome:' %> <br />
+      <%= t.text_field :name %> <br />
+      <%= t.label 'Depoimento:' %> <br />
+      <%= t.text_area :testimonial %> <br /> <br />
+      <%= t.button 'Ok', id: 'loginPost', class: 'right' %>
+    <% end %>
+  </section>
+</section>
+<section id="fade" class="overlay_content"></section>

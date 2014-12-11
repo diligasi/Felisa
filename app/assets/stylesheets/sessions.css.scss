@@ -1,0 +1,65 @@
+// Place all the styles related to the sessions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#login-area {
+  display: inline-block;
+  width: 400px;
+
+  header {
+    width: 100%;
+    font-size: 18px;
+    -moz-border-radius: 2px 2px 0 0;
+    -webkit-border-radius: 2px 2px 0 0;
+    border-radius: 2px 2px 0 0;
+    text-transform: uppercase;
+    line-height: 21px;
+    padding: 10px;
+  }
+
+  p {
+    margin: 20px 0;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+.icon-lock:before {
+  font-size: 28px;
+  position: relative;
+  top: 13px;
+  display: inline-block;
+}
+.subtitle {
+  font-size: 12px;
+  font-weight: bold;
+  display: block;
+  margin-left: 37px;
+  text-transform: none;
+}
+.login-error-msg {
+  margin: 0 0 0 39px !important;
+  font-size: 12px;
+}
+#login-area  div#fields-area {
+  padding: 20px;
+  -moz-border-radius: 0 0 2px 2px;
+  -webkit-border-radius: 0 0 2px 2px;
+  border-radius: 0 0 2px 2px;
+}
+#login-area input[type="text"],
+#login-area input[type="password"] {
+  padding-left: 30px;
+  min-height: 44px;
+}
+.loginshadow {
+  height: 5px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+}

@@ -1,0 +1,18 @@
+<style>
+  label {
+    font-weight: bold;
+  }
+  #content_text_title {
+    border: 1px solid #b6b6b6;
+    margin-bottom: 20px;
+    background: #fff;
+  }
+</style>
+
+<%= form_for content, url: save_couple_history_content_path do |f| %>
+  <%= f.label :Título %>
+  <%= f.text_field :title %>
+  <%= f.hidden_field :page, :value => content[:page] %>
+  <%= f.label :page_text, 'Conte a história do casal' %>
+  <%= f.cktext_area :page_text, :ckeditor => {:language => 'pt'} %>
+<% end %>

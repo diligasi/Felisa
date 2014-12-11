@@ -1,0 +1,17 @@
+<section id="login-area" class="centered">
+  <article>
+    <header>
+      <span class="icon-lock"><!-- Aqui será renderizado o icone do cadeado --></span>
+        FelIsa
+      <span class="subtitle">Efetue o login para gerenciar o sistema.</span>
+      <p class='login-error-msg'><!-- Aqui será renderizado a mensagem de erro do login --></p>
+    </header>
+    <div id="fields-area">
+      <%= form_for :session, :html => { :id => 'login_form', :class => 'clearfix' }, url: sessions_path do |s| %>
+        <p><%= s.text_field :login, id: 'username', placeholder: 'Usuário' %></p>
+        <p><%= s.password_field :password, id: 'password', placeholder: 'Senha' %></p>
+        <p><%= s.button '<span>Login</span>'.html_safe, id: 'loginPost', class: 'icon-arrow-right submit-effect right' %></p>
+      <%end%>
+    </div>
+  </article>
+</section>

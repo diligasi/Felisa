@@ -21,33 +21,45 @@ object {
 
 // Tela da cerimönia
 .container {
-  background: rgba(255, 255, 255, .8);
+  background: rgba(68, 68, 68, .5);
   width: 1024px;
   padding: 10px;
   margin: 15px auto;
-  border-radius: 2px;
-  /*border-left: 1px solid #CCC;*/
-  -moz-box-shadow: 1px 1px 5px 0 #ccc;
-  -webkit-box-shadow: 1px 1px 5px 0 #ccc;
-  box-shadow: 1px 1px 5px 0 #ccc;
-  -moz-border-radius-topright: 2px;
-  -webkit-border-top-right-radius: 2px;
-  border-top-right-radius: 2px;
-  -moz-border-radius-bottomright: 2px;
-  -webkit-border-bottom-right-radius: 2px;
-  border-bottom-right-radius: 2px;
+  text-align: justify;
+  color: #f0f0f0;
+
+  .title {
+    text-align: center;
+    width: 100%;
+    font-weight: lighter;
+    background: url('title-bg.png') no-repeat center 0;
+    background-size: 391px 207px;
+    height: 212px;
+
+    h1 {
+      padding-top: 45px;
+      font-size: 55px;
+      -webkit-font-smoothing: antialiased;
+      font-family: 'Rouge Script', cursive;
+      color: #f0f0f0;
+      margin-bottom: -7px;
+    }
+
+    div {
+      font-family: 'Rouge Script', cursive;
+      color: #f0f0f0;
+      font-size: 30px;
+      line-height: 31px;
+    }
+  }
 
   img {
     margin-right: 10px;
   }
 
-//  div {
-//    width: 84%;
-    text-align: justify;
-
-    h3 {
-      line-height: inherit;
-      margin: 0 0 10px 0;
-    }
-//  }
+  h3 {
+    line-height: inherit;
+    margin: 0 0 10px 0;
+    color: #f0f0f0;
+  }
 }

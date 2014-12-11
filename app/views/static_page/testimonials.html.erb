@@ -1,0 +1,26 @@
+<script>
+  $("a[data-panel-control]").click(function(event){
+    $("#lightbox, #fade").css({'display': 'block'});
+    event.preventDefault(); // Impede que o link siga para o caminho especificado no atributo 'href'
+  });
+</script>
+
+<div class="container clearfix">
+  <p style="font-size: 16px; font-weight: bold; isplay: inline-block; width: 68%; float: left;">► Este espaço é livre para que todos possam expressar em palavras todo o carinho para com os noivos:</p>
+  <%= link_to 'Novo Depoimento', '#', :id => 'newTestimonial', :class => 'bnt-apparence', :data => {:panel_control => true} %>
+  <br /><br /><br /><br />
+  <%= '<p style="text-align: center; font-weight: bold;">VAMOS COMENTAR MEU POVO!!!</p>'.html_safe if @testimonials.blank? %>
+</div>
+<% Array.wrap(@testimonials).each_with_index do |test, idx| %>
+  <div class="container clearfix" style="font-size: 14px; text-align: center; padding: 20px;">
+    <%= image_tag(image_url('aspas.png'), width: '50', height: '47') %>
+    <%= raw test.testimonial %>
+    <%= image_tag(image_url('aspas.png'), width: '50', height: '47', style: 'float: right; -webkit-transform: rotate(180deg); -moz-transform: rotate(180deg); -o-transform: rotate(180deg); -ms-transform: rotate(180deg); transform: rotate(180deg); filter: progid:DXImageTransform.Microsoft.Matrix(M11=-1, M12=0, M21=0, M22=-1, DX=0, DY=0, SizingMethod="auto expand");') %>
+    <br /><br />
+    <div class="right" style="width: 30%; padding: 5px; text-align: left;">
+      - <%= raw test.name %>
+    </div>
+  </div>
+<% end %>
+
+<%= render :partial => 'common/lightbox', :locals => { :testimonial => @new_testimonial } %>

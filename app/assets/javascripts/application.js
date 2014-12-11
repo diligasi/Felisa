@@ -10,10 +10,13 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require ckeditor/init
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+var guests;
 
 /* Ajusta o tamanho da imagem no background */
 function backgroundResize(){
@@ -55,12 +58,22 @@ $(window).on('resize', function(){
 });
 
 /* Funções a serem inicializadas com o sistema */
-$(document).on('page:load', function(){
+$(document).on('ready page:load', function(){
     backgroundResize();
+    homeSliderPic();
 });
 
 /* Gerencia a exibição do load e da lista de presentes */
 function hideLoadding() {
     $('#loading').hide();
     $('.embed-container').css("visibility", "visible");
-}
+};
+
+function homeSliderPic() {
+    var options = {
+        $AutoPlay: true,        //[Optional] Whether to auto play, to enable slideshow, this option must be set to true, default value is false
+        $DragOrientation: 3     //[Optional] Orientation to drag slide, 0 no drag, 1 horizental, 2 vertical, 3 either, default value is 1 (Note that the $DragOrientation should be the same as $PlayOrientation when $DisplayPieces is greater than 1, or parking position is not 0)
+    };
+
+    var jssor_slider1 = new $JssorSlider$("slider1_container", options);
+};

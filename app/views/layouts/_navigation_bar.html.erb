@@ -1,10 +1,13 @@
 <ul id="main-menu" class="right">
   <li><%= link_to "<span class='icon-home'></span>".html_safe, root_path %></li>
-  <li><%= link_to 'Nossa história', root_path %></li>
-  <li><%= link_to 'Álbum', root_path %></li>
+  <li><%= link_to 'Nossa história', couple_history_path %></li>
+  <li><%= link_to 'Depoimentos', testimonials_path %></li>
   <li><%= link_to 'Lista de presentes', gift_list_path %></li>
-  <li><%= link_to 'Pessoas especiais', root_path %></li>
-  <li><%= link_to 'Confirmar presença', root_path %></li>
+  <!--<li><%#= link_to 'Pessoas especiais', root_path %></li>-->
+  <!--<li><%#= link_to 'Confirmar presença', confirmation_path %></li>-->
   <li><%= link_to 'Cerimônia', ceremony_path %></li>
   <li><%= link_to 'Fornecedores', suppliers_path %></li>
+  <% if logged_in? %>
+    <li><%= link_to "<span class='icon-exit'></span>".html_safe, signout_path, method: 'delete', :class => 'leave_btn' %></li>
+  <% end %>
 </ul>

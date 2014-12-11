@@ -1,2 +1,106 @@
-<h1>StaticPage#index</h1>
-<p>Find me in app/views/static_page/index.html.erb</p>
+<style>
+    div.home {
+        width: 100%;
+        height: 280px;
+        position: relative;
+        color: #FFA526 !important;
+        z-index: -1;
+    }
+    div.home:after {
+        background: url(<%= image_url 'home-bg.png' %>);
+        background-color: rgba(152, 153, 151, .85);
+        background-repeat: no-repeat;
+        /*background-attachment: fixed;*/
+        background-position-x: 50%;
+        background-position-y: 85%;
+        /*background-size: 100% 200px;*/
+        opacity: 0.85;
+        width: 100%;
+        height: 280px;
+        top: 42;
+        left: 0;
+        position: absolute;
+        z-index: -1;
+        content: "";
+    }
+    div.home .title {
+        text-align: center;
+        width: 100%;
+        font-weight: lighter;
+        position: absolute;
+        z-index: 0;
+    }
+    div.home h1 {
+        padding-top: 10px;
+        font-size: 75px;
+        -webkit-font-smoothing: antialiased;
+        font-family: 'Rouge Script', cursive;
+        color: #FFA526 !important;
+        margin-bottom: -7px;
+    }
+
+    div.home div {
+        font-family: 'Rouge Script', cursive;
+        color: #FFA526 !important;
+        font-size: 50px;
+        line-height: 45px;
+        font-weight: bold;
+    }
+
+    div.slider {
+        width: 693px;
+        height: 462px;
+
+        border-style: solid;
+        border-width: 138px 210px 243px 295px;
+        -moz-border-image: url(<%= image_url 'molde.png' %>) 138 210 243 295 stretch;
+        -webkit-border-image: url(<%= image_url 'molde.png' %>) 138 210 243 295 stretch;
+        -o-border-image: url(<%= image_url 'molde.png' %>) 138 210 243 295 stretch;
+        border-image: url(<%= image_url 'molde.png' %>) 138 210 243 295 fill stretch;
+
+        margin: 0 auto;
+    }
+
+    .multiple-border {
+        -webkit-box-shadow:
+        0px 0px 0px 2px rgba(0,0,0,0.6),
+        0px 0px 0px 14px #fff,
+        0px 0px 0px 18px rgba(0,0,0,0.2),
+        6px 6px 8px 17px #555;
+
+        -moz-box-shadow:
+        0px 0px 0px 2px rgba(0,0,0,0.6),
+        0px 0px 0px 14px #fff,
+        0px 0px 0px 18px rgba(0,0,0,0.2),
+        6px 6px 8px 17px #555;
+
+        box-shadow:
+        0px 0px 0px 2px rgba(0,0,0,0.6),
+        0px 0px 0px 14px #fff,
+        0px 0px 0px 18px rgba(0,0,0,0.2),
+        6px 6px 8px 17px #555;
+    }
+</style>
+
+<div class="home">
+    <div class="title">
+      <h1>Felipe & Isaclaudia</h1>
+      <div>
+        <%= date_diff_from_now '24/01/2015' %>
+      </div>
+    </div>
+</div>
+<br />
+<!--<div class="container clearfix">-->
+    <div id="slider1_container" class="multiple-border" style="position: relative; top: 0px; left: 0px; width: 600px; height: 450px; margin: 0 auto; margin-top: 10px;">
+      <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 600px; height: 450px; overflow: hidden;">
+        <% files_from_directory("#{Rails.root}/public/pictures/casal/*").each do |pic| %>
+          <% if pic.split('/').last.index('.db').nil? %>
+            <div><%= image_tag "#{root_url}pictures/casal/#{pic.split('/').last}", :u => 'image' %></div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <br /><br />
+<!--</div>-->
+

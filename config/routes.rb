@@ -1,10 +1,27 @@
 Rails.application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
+
+  get 'manager/index'
+  get 'manager/guests'
+
   resources :guests
+  resources :sessions, only: [:new, :create, :destroy, :index]
 
   #get 'static_page/index'
-  get '/lista_presentes' => 'static_page#gift_list', :as => :gift_list
-  get '/cerimonia' => 'static_page#ceremony', :as => :ceremony
-  get '/fornecedores' => 'static_page#suppliers', :as => :suppliers
+  get '/cerimonia'        =>  'static_page#ceremony',       :as =>  :ceremony
+  get '/lista_presentes'  =>  'static_page#gift_list',      :as =>  :gift_list
+  get '/depoimentos'      =>  'static_page#testimonials',   :as =>  :testimonials
+  get '/historia_casal'   =>  'static_page#couple_history', :as =>  :couple_history
+  get '/fornecedores'     =>  'static_page#suppliers',      :as =>  :suppliers
+  get '/gerenciamento'    =>  'manager#index',              :as =>  :manager
+
+  match '/savar_depoimentos'        =>  'static_page#create_testimonial',        via: 'post',          :as =>  :save_testimonials
+  match '/acesso'                   =>  'sessions#new',                         via:  'get',          :as =>  :login
+  match '/upload'                   =>  'manager#guests',                       via:  'post',         :as =>  :upload
+  match '/texto_nossa_historia'     =>  'manager#save_couple_history_content',  via:  %w(PATCH post), :as =>  :save_couple_history_content
+  match '/sair'                     =>  'sessions#destroy',                     via:  'delete',       :as =>  :signout
+  match '/confirmar'                =>  'guests#confirm',                       via:  %w(get post),   :as =>  :confirmation
+  match '/guest_autocomplete_list'  =>  'guests#guest_autocomplete_list',       via:  %w(get post)
 
   root 'static_page#index'
 

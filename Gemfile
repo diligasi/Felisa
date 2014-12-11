@@ -23,6 +23,8 @@ gem 'spreadsheet'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
+gem 'simple_xlsx_reader'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -37,6 +39,9 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:x64_mingw, :mingw, :mswin]
+
+gem 'ckeditor', '4.1.0'
+gem 'paperclip'
 
 group :development do
   gem 'sqlite3'

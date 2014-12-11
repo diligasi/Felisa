@@ -1,0 +1,19 @@
+<section id="login-area" class="centered">
+    <article>
+        <!--<header>-->
+        <!--<span class="icon-lock">&lt;!&ndash; Aqui será renderizado o icone do cadeado &ndash;&gt;</span>-->
+        <!--FelIsa-->
+        <!--<span class="subtitle">Efetue o login para gerenciar o sistema.</span>-->
+        <!--<p class='login-error-msg'>&lt;!&ndash; Aqui será renderizado a mensagem de erro do login &ndash;&gt;</p>-->
+        <!--</header>-->
+        <div id="fields-area">
+            <%= form_tag do %>
+                <%= label_tag(:a_adress, 'Insira seu nome como escrito no convite: ') %>
+                <%= text_field_tag(:guests, nil, :list => 'guests_list') %>
+                <datalist id="guests_list">
+                </datalist>
+            <% end %>
+        </div>
+    </article>
+</section>
+
