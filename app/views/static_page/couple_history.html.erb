@@ -41,7 +41,7 @@
 </style>
 <div class="container clearfix">
   <h1 style="display: inline-block; color: #fff"><%= @couple_history ? @couple_history['title'] : 'Aqui teremos uma breve história dos noivos!' %></h1>
-  <%= image_tag "#{root_url}pictures/couple_history/I.F. 13.jpg", :class => 'multiple-borders left' %>
+  <%= image_tag "#{root_url}pictures/couple_history/if13.jpg", :class => 'multiple-borders left' %>
   <%= image_tag "#{root_url}pictures/couple_history/noivos.jpg", :class => 'multiple-borders left m-right16' %>
     <br />
     <%= @couple_history ? raw(@couple_history[:page_text]) : '<p>Aqui entra a história dos noivos! =D</p>'.html_safe %>
