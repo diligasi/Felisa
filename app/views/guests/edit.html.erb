@@ -1,6 +1,22 @@
-<h1>Editing guest</h1>
+<style>
+  section, section a {
+    color: #fff;
+  }
+  strong {
+    font-weight: bolder;
+  }
+</style>
 
-<%= render 'form' %>
+<section id="login-area" class="centered">
+  <div id="fields-area">
+    <h2 style="color: #fff; margin: 0 0 15px 0; border-bottom: 3px solid #FEA841;">► Editar convidado</h2>
 
-<%= link_to 'Show', @guest %> |
-<%= link_to 'Back', guests_path %>
+    <%= render 'form' %>
+
+    <div class="right" style="margin-bottom: 20px;">
+      <%= link_to 'Detalhes', @guest %> |
+      <%= link_to 'Voltar', guests_index_path %>
+    </div>
+    <br />
+  </div>
+</section>

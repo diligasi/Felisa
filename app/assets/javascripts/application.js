@@ -16,7 +16,6 @@
 //= require turbolinks
 //= require_tree .
 
-var guests;
 
 /* Ajusta o tamanho da imagem no background */
 function backgroundResize(){

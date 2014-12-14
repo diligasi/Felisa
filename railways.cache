@@ -1,27 +1,38 @@
-                     Prefix Verb     URI Pattern                        Controller#Action
-              manager_index GET      /manager/index(.:format)           manager#index
-             manager_guests GET      /manager/guests(.:format)          manager#guests
-               guests_index GET      /guests(.:format)                  guests#index
-                            POST     /guests(.:format)                  guests#create
-                 new_guests GET      /guests/new(.:format)              guests#new
-                edit_guests GET      /guests/:id/edit(.:format)         guests#edit
-                     guests GET      /guests/:id(.:format)              guests#show
-                            PATCH    /guests/:id(.:format)              guests#update
-                            PUT      /guests/:id(.:format)              guests#update
-                            DELETE   /guests/:id(.:format)              guests#destroy
-                   sessions GET      /sessions(.:format)                sessions#index
-                            POST     /sessions(.:format)                sessions#create
-                new_sessiom GET      /sessions/new(.:format)            sessions#new
-                    sessiom DELETE   /sessions/:id(.:format)            sessions#destroy
-             couple_history GET      /historia_casal(.:format)          static_page#couple_history
-                  gift_list GET      /lista_presentes(.:format)         static_page#gift_list
-                   ceremony GET      /cerimonia(.:format)               static_page#ceremony
-                  suppliers GET      /fornecedores(.:format)            static_page#suppliers
-                    manager GET      /gerenciamento(.:format)           manager#index
-                      login GET      /acesso(.:format)                  sessions#new
-                     upload POST     /upload(.:format)                  manager#guests
-save_couple_history_content POST     /texto_nossa_historia(.:format)    manager#save_couple_history_content
-                    signout DELETE   /sair(.:format)                    sessions#destroy
-               confirmation GET|POST /confirmar(.:format)               guests#confirm
-    guest_autocomplete_list GET|POST /guest_autocomplete_list(.:format) guests#guest_autocomplete_list
-                       root GET      /                                  static_page#index
+                     Prefix Verb       URI Pattern                        Controller#Action
+                   ckeditor            /ckeditor                          Ckeditor::Engine
+              manager_index GET        /manager/index(.:format)           manager#index
+             manager_guests GET        /manager/guests(.:format)          manager#guests
+               guests_index GET        /guests(.:format)                  guests#index
+                            POST       /guests(.:format)                  guests#create
+                 new_guests GET        /guests/new(.:format)              guests#new
+                edit_guests GET        /guests/:id/edit(.:format)         guests#edit
+                     guests GET        /guests/:id(.:format)              guests#show
+                            PATCH      /guests/:id(.:format)              guests#update
+                            PUT        /guests/:id(.:format)              guests#update
+                            DELETE     /guests/:id(.:format)              guests#destroy
+                   sessions GET        /sessions(.:format)                sessions#index
+                            POST       /sessions(.:format)                sessions#create
+                new_sessiom GET        /sessions/new(.:format)            sessions#new
+                    sessiom DELETE     /sessions/:id(.:format)            sessions#destroy
+                   ceremony GET        /cerimonia(.:format)               static_page#ceremony
+                  gift_list GET        /lista_presentes(.:format)         static_page#gift_list
+               testimonials GET        /depoimentos(.:format)             static_page#testimonials
+             couple_history GET        /historia_casal(.:format)          static_page#couple_history
+                  suppliers GET        /fornecedores(.:format)            static_page#suppliers
+                    manager GET        /gerenciamento(.:format)           manager#index
+          save_testimonials POST       /savar_depoimentos(.:format)       static_page#create_testimonial
+                      login GET        /acesso(.:format)                  sessions#new
+                     upload POST       /upload(.:format)                  manager#guests
+save_couple_history_content PATCH|POST /texto_nossa_historia(.:format)    manager#save_couple_history_content
+                    signout DELETE     /sair(.:format)                    sessions#destroy
+               confirmation GET|POST   /confirmar(.:format)               guests#confirm
+    guest_autocomplete_list GET|POST   /guest_autocomplete_list(.:format) guests#guest_autocomplete_list
+                       root GET        /                                  static_page#index
+
+Routes for Ckeditor::Engine:
+        pictures GET    /pictures(.:format)             ckeditor/pictures#index
+                 POST   /pictures(.:format)             ckeditor/pictures#create
+          pictur DELETE /pictures/:id(.:format)         ckeditor/pictures#destroy
+attachment_files GET    /attachment_files(.:format)     ckeditor/attachment_files#index
+                 POST   /attachment_files(.:format)     ckeditor/attachment_files#create
+ attachment_file DELETE /attachment_files/:id(.:format) ckeditor/attachment_files#destroy

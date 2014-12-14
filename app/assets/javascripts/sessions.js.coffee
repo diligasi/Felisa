@@ -17,6 +17,7 @@ $(document).on "submit", "#login_form", ->
     complete: (data) ->
       if data.status is 200
         document.write data.responseText
+        $( "#tabs" ).tabs()
       else
         alert 'oops'
         $(".login-error-msg").html "Usuário ou senha inválido."

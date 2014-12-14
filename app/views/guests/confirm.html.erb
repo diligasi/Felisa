@@ -1,19 +1,59 @@
+<style>
+  section, section a {
+    color: #fff;
+  }
+  strong {
+    font-weight: bolder;
+  }
+  #guests {
+    float: left;
+    display: inline-block;
+    width: 71%;
+    height: 47px;
+  }
+  #find_guest {
+      padding: 12px 20px !important;
+  }
+  #btn_confirm {
+      margin-top: 15px;
+      padding: 12px 20px !important;
+  }
+</style>
 <section id="login-area" class="centered">
-    <article>
-        <!--<header>-->
-        <!--<span class="icon-lock">&lt;!&ndash; Aqui será renderizado o icone do cadeado &ndash;&gt;</span>-->
-        <!--FelIsa-->
-        <!--<span class="subtitle">Efetue o login para gerenciar o sistema.</span>-->
-        <!--<p class='login-error-msg'>&lt;!&ndash; Aqui será renderizado a mensagem de erro do login &ndash;&gt;</p>-->
-        <!--</header>-->
-        <div id="fields-area">
-            <%= form_tag do %>
-                <%= label_tag(:a_adress, 'Insira seu nome como escrito no convite: ') %>
-                <%= text_field_tag(:guests, nil, :list => 'guests_list') %>
-                <datalist id="guests_list">
-                </datalist>
-            <% end %>
+  <article>
+    <div id="fields-area" class="clearfix">
+      <h4 class="hideGuest" style="color: #fff; margin: 0 0 15px 0; border-bottom: 3px solid #FEA841;">► Para confirmar sua presença escreva seu nome na caixa abaixo:</h4>
+        <div class="clearfix hideGuest" style="width: 100%; padding: 0 0 20px 0;">
+          <%= form_tag do %>
+            <%= label_tag(:nome, 'Insira seu nome: ') %>
+            <div style="width: 100%;">
+              <%= text_field_tag(:guests, nil, :list => 'guests_list') %>
+              <%= link_to 'Buscar', '#', :id => 'find_guest', :class => 'bnt-apparence' %>
+            </div>
+            <datalist id="guests_list">
+            </datalist>
+          <% end %>
         </div>
-    </article>
+
+        <div id="confirm_presence" class="clearfix" style="display: none; width: 100%; margin: 12px 0 0 0;">
+          <h4 style="color: #fff; text-align: justify; border-bottom: 3px solid #FEA841;">► Se os dados abaixo estiverem corretos confirme sua presença.</h4>
+          <%= form_tag do %>
+            <%= label_tag(:nome, 'Nome: ') %><br />
+            <%= text_field_tag(:name, nil, :disabled => true) %><br />
+            <%= label_tag(:accompanying_number, 'N° de Convites (Você mais acompanhantes): ') %><br />
+            <%= text_field_tag(:accompanying_number, nil, :disabled => true) %><br />
+            <%= hidden_field_tag :guest_id, :value => session[:user_id]%>
+            <%= link_to 'Confirmar presença', '#', :id => 'btn_confirm', :class => 'bnt-apparence' %>
+          <% end %>
+        </div>
+
+        <div id="confirm_msg" class="clearfix" style="display: none; width: 100%;">
+            <%= image_tag(image_url('noiva.png'), width: '50', height: '47', style: 'float: left;') %>
+          <h4 style="display: inline-block; width: 300px; margin: 7px 0 0 10px; text-align: justify; color: #fff;">
+            Sua presença foi confirmada com sucesso. Fico feliz em poder contar com sua presença!
+          </h4>
+        </div>
+      </div>
+  </article>
 </section>
 

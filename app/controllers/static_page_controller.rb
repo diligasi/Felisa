@@ -16,7 +16,7 @@ class StaticPageController < ApplicationController
   end
 
   def testimonials
-    @testimonials = Testimonial.all
+    @testimonials = Testimonial.all.order('id desc')
     @new_testimonial = Testimonial.new
   end
 

@@ -15,13 +15,15 @@ Rails.application.routes.draw do
   get '/fornecedores'     =>  'static_page#suppliers',      :as =>  :suppliers
   get '/gerenciamento'    =>  'manager#index',              :as =>  :manager
 
-  match '/savar_depoimentos'        =>  'static_page#create_testimonial',        via: 'post',          :as =>  :save_testimonials
+  match '/savar_depoimentos'        =>  'static_page#create_testimonial',       via: 'post',          :as =>  :save_testimonials
   match '/acesso'                   =>  'sessions#new',                         via:  'get',          :as =>  :login
   match '/upload'                   =>  'manager#guests',                       via:  'post',         :as =>  :upload
   match '/texto_nossa_historia'     =>  'manager#save_couple_history_content',  via:  %w(PATCH post), :as =>  :save_couple_history_content
   match '/sair'                     =>  'sessions#destroy',                     via:  'delete',       :as =>  :signout
   match '/confirmar'                =>  'guests#confirm',                       via:  %w(get post),   :as =>  :confirmation
   match '/guest_autocomplete_list'  =>  'guests#guest_autocomplete_list',       via:  %w(get post)
+  match '/select_guest'             =>  'guests#select_guest',                  via:  %w(get post)
+  match '/confirm_this_guest'       =>  'guests#confirm_this_guest',            via:  'post'
 
   root 'static_page#index'
 

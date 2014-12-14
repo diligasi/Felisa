@@ -4,7 +4,6 @@
 
 //$(document).ready(function() {
 function autocomplete() {
-//    alert('oi');
     var guests_obj = { data: '', last_data: '', timer: null };
 
     function fill_data(data_obj, fill_func, target_list, target_input, url) {
@@ -21,7 +20,7 @@ function autocomplete() {
                 }
             }
 
-            data_obj.timer = window.setTimeout(fill_func, 500);
+            data_obj.timer = window.setTimeout(fill_func, 300);
 
             return data_obj;
         }
@@ -79,7 +78,7 @@ function autocomplete() {
         if(guests_obj.data == '')
             return;
         if(!guests_obj.timer)
-            guests_obj.timer = window.setTimeout(fill_guests_obj, 500);
+            guests_obj.timer = window.setTimeout(fill_guests_obj, 300);
     });
 };
 //});

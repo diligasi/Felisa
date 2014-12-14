@@ -12,14 +12,19 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label :nome %><br>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :accompanying_number %><br>
-    <%= f.number_field :accompanying_number %>
+    <%= f.label :número_de_acompanhantes %><br>
+    <%= f.number_field :accompanying_number, :style => 'width: 100%;' %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+    <div class="field">
+        <%= f.check_box :is_confirmed %>
+        <%= f.label :confirmado, :confirmado, :style => 'position: absolute;' %><br>
+    </div>
+  <div class="actions clearfix">
+    <%= f.submit 'Salvar', :class => 'bnt-apparence' %>
   </div>
+  <br />
 <% end %>

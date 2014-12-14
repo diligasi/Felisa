@@ -1,9 +1,47 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
-
-#guests = []
-
 $(document).on "page:load", ->
   autocomplete()
+  $("#find_guest").click (event) ->
+    $.ajax
+      url: "select_guest"
+      type: "GET"
+      data:
+        data: $("#guests").val()
+
+      success: (data, textStatus, xhr) ->
+        document.getElementById("guest_id").value = data.id
+        document.getElementById("name").value = data.name
+        document.getElementById("accompanying_number").value = data.accompanying_number
+        $("#confirm_presence").css display: "block"
+        return
+
+      error: (erro) ->
+        alert JSON.stringify(erro)
+        return
+
+    event.preventDefault()
+    return
+
+  $("#btn_confirm").click (event) ->
+    $.ajax
+      url: "confirm_this_guest"
+      type: "post"
+      data:
+        data: $("#guest_id").val()
+
+      success: (data, textStatus, xhr) ->
+        if data is "Salvo"
+          $(".hideGuest").css display: "none"
+          $("#confirm_presence").css display: "none"
+          $("#confirm_msg").css display: "block"
+        else
+          alert data
+        return
+
+      error: (erro) ->
+        alert JSON.stringify(erro)
+        return
+
+    event.preventDefault()
+    return
+
   return

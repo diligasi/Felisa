@@ -1,6 +1,6 @@
 class GuestsController < ApplicationController
   before_action :set_guest, only: [:show, :edit, :update, :destroy]
-  before_action :go_to_login_if_needed, except: [:confirm, :guest_autocomplete_list]
+  before_action :go_to_login_if_needed, except: [:confirm, :guest_autocomplete_list, :select_guest, :confirm_this_guest]
 
   # GET /guests
   # GET /guests.json
@@ -76,13 +76,23 @@ class GuestsController < ApplicationController
     end
     str += ''
     render :text => str
-    # @guests = Guests.order('name').all
-    # str = ''
-    # Array.wrap(@guests).each do |option|
-    #   str += "#{option['name']}|"
-    # end
-    # str += ''
-    # render :text => str
+  end
+
+  def select_guest
+    @guest_to_confirm = Guests.where("upper(name) like '%#{params[:data].upcase}%'").first
+
+    render :json => @guest_to_confirm
+  end
+
+  def confirm_this_guest
+    guest = Guests.find(params[:data])
+    if guest.is_confirmed
+      render :text => 'Sua presença já foi confirmada!'
+    else
+      guest.is_confirmed = true
+      guest.save
+      render :text => 'Salvo'
+    end
   end
 
   private
@@ -93,7 +103,7 @@ class GuestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def guest_params
-      params.require(:guest).permit(:name, :accompanying_number)
+      params.require(:guests).permit(:name, :accompanying_number)
     end
 
     def go_to_login_if_needed

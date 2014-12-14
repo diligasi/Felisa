@@ -1,7 +1,7 @@
 class ManagerController < ApplicationController
   before_action :go_to_login_if_needed
 
-  WORDS_TO_BE_EXCLUDED = ['pe', 'irmã', 'tia', 'tio', 'vó']
+  WORDS_TO_BE_EXCLUDED = ['pe ', 'irmã ', 'tia ', 'tio ', 'vó ']
 
   def index
     $couple_history = ContentText.where(:page => 'couple_history').first
@@ -34,6 +34,7 @@ class ManagerController < ApplicationController
         new_guest.save
       end
     end
+    redirect_to guests_index_path
   end
 
   private
