@@ -1,28 +1,25 @@
 <% @couple_history = $couple_history if $couple_history %>
+<% @parents_history = $parents_history if $parents_history %>
+<% @users_list = $users_list if $users_list %>
 <div class="container" style="width: 80%; height: 75%;  background: rgba(68, 68, 68, .4);">
   <div id="tabs">
     <ul>
       <li><a href="#tabs-1">História do casal</a></li>
-      <li><a href="#tabs-2">Gerenciar convidadeos</a></li>
-      <li><a href="#tabs-3">Aenean lacinia</a></li>
+      <li><a href="#tabs-2">Gerenciar convidados</a></li>
+      <li><a href="#tabs-3">Gerenciar texto dos pais, padrinhos e das crianças</a></li>
+      <li><a href="#tabs-4">Gerenciamento de usuários administradores</a></li>
     </ul>
     <div id="tabs-1" class="clearfix">
       <%= render partial: 'manager/couple_history_manager', locals: { :content => @couple_history } %>
     </div>
     <div id="tabs-2" class="clearfix">
-      <span class="icon-arrow-right left" style="display: inline-block" /><h3 style="display: inline-block">Lista de convidados</h3>
-      <br />
-      <%= form_tag(upload_path, :multipart => true) do %>
-        <p>
-          <label for="upload_file">Arquivo com a lista</label> :
-          <%= file_field 'upload', 'datafile' %>
-        </p>
-        <%= submit_tag 'Upload' %>
-      <% end %>
+      <%= render partial: 'manager/guests_mnager' %>
     </div>
     <div id="tabs-3">
-      <p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.</p>
-      <p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus. Nulla facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit. Suspendisse potenti. Donec mattis, pede vel pharetra blandit, magna ligula faucibus eros, id euismod lacus dolor eget odio. Nam scelerisque. Donec non libero sed nulla mattis commodo. Ut sagittis. Donec nisi lectus, feugiat porttitor, tempor ac, tempor vitae, pede. Aenean vehicula velit eu tellus interdum rutrum. Maecenas commodo. Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus hendrerit hendrerit.</p>
+      <%= render partial: 'manager/main_people_manager', locals: { :parents => @parents_history } %>
+    </div>
+    <div id="tabs-4">
+      <%= render partial: 'manager/users_manager', locals: { :users => @users_list} %>
     </div>
   </div>
 </div>

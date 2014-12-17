@@ -27,6 +27,8 @@ save_couple_history_content PATCH|POST /texto_nossa_historia(.:format)    manage
                     signout DELETE     /sair(.:format)                    sessions#destroy
                confirmation GET|POST   /confirmar(.:format)               guests#confirm
     guest_autocomplete_list GET|POST   /guest_autocomplete_list(.:format) guests#guest_autocomplete_list
+               select_guest GET|POST   /select_guest(.:format)            guests#select_guest
+         confirm_this_guest POST       /confirm_this_guest(.:format)      guests#confirm_this_guest
                        root GET        /                                  static_page#index
 
 Routes for Ckeditor::Engine:

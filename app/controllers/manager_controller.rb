@@ -5,10 +5,12 @@ class ManagerController < ApplicationController
 
   def index
     $couple_history = ContentText.where(:page => 'couple_history').first
-    if $couple_history.nil?
-      $couple_history = ContentText.new
-      $couple_history['page'] = 'couple_history'
-    end
+    $couple_history = create_if_needed($couple_history, 'couple_history')
+
+    $parents_history = ContentText.where(:page => 'parent_history').first
+    $parents_history = create_if_needed($parents_history, 'parent_history')
+
+    $users_list = AccessUsers.all
   end
 
   def save_couple_history_content
@@ -16,6 +18,14 @@ class ManagerController < ApplicationController
     @couple_history = ContentText.new(content_texts_params)
     if @couple_history.save
       redirect_to couple_history_path
+    end
+  end
+
+  def save_parents_history_content
+    ContentText.delete_all(:page => 'parent_history')
+    @parent_history = ContentText.new(content_texts_params)
+    if @parent_history.save
+      render :html => 'Salvo'
     end
   end
 
@@ -78,5 +88,13 @@ class ManagerController < ApplicationController
       aux.each { |n| normalized_name += n.size > 2 ? n.capitalize + ' ' : n + ' ' }
 
       return normalized_name[0...-1]
+    end
+
+    def create_if_needed(obj, page_type)
+      if obj.nil?
+        obj = ContentText.new
+        obj[:page] = page_type
+      end
+      obj
     end
 end

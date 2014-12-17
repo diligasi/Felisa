@@ -19,7 +19,7 @@ $(document).on "submit", "#login_form", ->
         document.write data.responseText
         $( "#tabs" ).tabs()
       else
-        alert 'oops'
+        alert data.status
         $(".login-error-msg").html "Usuário ou senha inválido."
         $("#username, #password").addClass "error"
       return

@@ -1,0 +1,11 @@
+<span class="icon-arrow-right left" style="display: inline-block; margin: 5px 0 0 0;" /><h5 style="margin: 0 0 0 6px; display: inline-block;"><%= link_to 'Gerenciar convidados já importados.', guests_index_path %></h5>
+<br /><br />
+<span class="icon-arrow-right left" style="display: inline-block margin: 5px 0 0 0;" /><h5 style="margin: 0 0 0 6px; color: #000; display: inline-block">Importar lista de convidados (CUIDADO!!! Esta ação apagará todos os convidados atuais caso existam.)</h5>
+<br />
+<%= form_tag(upload_path, :multipart => true, :style => 'margin: 8px 0 0 21px;') do %>
+    <p>
+        <label for="upload_file">Arquivo com a lista</label> :
+        <%= file_field 'upload', 'datafile', :style => 'width: 82%; background: #fff;' %>
+    </p>
+    <%= submit_tag 'Upload', :class => 'bnt-apparence right' %>
+<% end %>

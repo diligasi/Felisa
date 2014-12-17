@@ -27,6 +27,10 @@ class StaticPageController < ApplicationController
     end
   end
 
+  def main_people
+    @parents_hist = ContentText.where("page = 'parent_history'").first
+  end
+
   private
     def testimonials_params
       params.require(:testimonial).permit(:name, :testimonial)

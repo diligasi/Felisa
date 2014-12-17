@@ -7,13 +7,12 @@
         z-index: -1;
     }
     div.home:after {
-        background: url(<%= image_url 'home-bg.png' %>);
-        background-color: rgba(152, 153, 151, .85);
-        background-repeat: no-repeat;
-        /*background-attachment: fixed;*/
-        background-position-x: 50%;
-        background-position-y: 85%;
-        /*background-size: 100% 200px;*/
+        /*background: url(<%= image_url 'home-bg.png' %>);*/
+        /*background-color: rgba(152, 153, 151, .85);*/
+        /*background-repeat: no-repeat;*/
+        /*background-position-x: 50%;*/
+        /*background-position-y: 85%;*/
+
         opacity: 0.85;
         width: 100%;
         height: 280px;
@@ -24,8 +23,9 @@
         content: "";
     }
     div.home .title {
-        text-align: center;
-        width: 100%;
+        /*text-align: center;*/
+        margin-left: 118px;
+        /*width: 100%;*/
         font-weight: lighter;
         position: absolute;
         z-index: 0;
@@ -92,13 +92,17 @@
 </div>
 <br />
 <!--<div class="container clearfix">-->
-    <div id="slider1_container" class="multiple-border" style="position: relative; top: 0px; left: 0px; width: 600px; height: 450px; margin: 0 auto; margin-top: 10px;">
-      <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 600px; height: 450px; overflow: hidden;">
-        <% files_from_directory("#{Rails.root}/public/pictures/casal/*").each do |pic| %>
-          <% if pic.split('/').last.index('.db').nil? %>
-            <div><%= image_tag "#{root_url}pictures/casal/#{pic.split('/').last}", :u => 'image' %></div>
+    <div style="width: 100%; display: inline-block; margin: -145px auto 0 auto;">
+      <div id="slider1_container" class="multiple-border" style="position: relative; top: 0px; left: 0px; width: 600px; height: 450px; margin: 0 auto;">
+      <!--<div id="slider1_container" class="multiple-border" style="position: relative; top: 0px; left: 0px; width: 600px; height: 450px; margin: 0 auto; margin-top: -105px;">-->
+        <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 600px; height: 450px; overflow: hidden;">
+        <!--<div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 600px; height: 450px; overflow: hidden; margin-top: 105px;">-->
+          <% files_from_directory("#{Rails.root}/public/pictures/casal/*").each do |pic| %>
+            <% if pic.split('/').last.index('.db').nil? %>
+              <div><%= image_tag "#{root_url}pictures/casal/#{pic.split('/').last}", :u => 'image' %></div>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
     </div>
     <br /><br />

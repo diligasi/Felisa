@@ -1,0 +1,58 @@
+<style>
+  h1 {
+    color: #fff;
+  }
+  table {
+    width: 100%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    border: 0;
+    text-align: center;
+  }
+  th {
+    padding: 6px 8px;
+    background: #FEA841;
+    color: #fff;
+    border-bottom: 3px solid #FEA841;
+    font-size: 15px;
+  }
+  td:first-child {
+    text-align: left;
+  }
+  td {
+    padding: 6px  8px;
+    border-bottom: 1px solid #FEA841;
+  }
+  table a {
+    color: #fff;
+  }
+</style>
+
+<div class="clearfix" style="width: 100%; display: table;">
+  <div style="display: table-cell; width: 40%;">lerolrero</div>
+  <div style="display: table-cell; width: 60%;">
+    <h3 style="color: #000;">► Usuários atuais</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Data de criação</th>
+          <th>Última edição no usuário</th>
+        </tr>
+        </thead>
+
+        <tbody>
+          <% Array.wrap(users).each do |u| %>
+            <tr>
+              <td><%= u.name %></td>
+              <td><%= u.created_at %></td>
+              <td><%= u.updated_at %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      <%= link_to 'Criar convidado', new_guests_path, :class => 'bnt-apparence', :style => 'margin-top: 30px;' %>
+  </div>
+</div>

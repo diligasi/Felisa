@@ -1,0 +1,26 @@
+<style>
+    label {
+        font-weight: bold;
+    }
+    #content_text_title {
+        border: 1px solid #b6b6b6;
+        margin-bottom: 20px;
+        background: #fff;
+    }
+</style>
+
+<div id="accordion">
+  <h3>Pais dos noivos</h3>
+  <div>
+    <%= form_for parents, url: save_main_people_content_path do |f| %>
+      <%= f.label 'Título (Opcional)', :style => 'float: left;' %>
+      <%= f.text_field :title %>
+      <%= f.hidden_field :page, :value => parents[:page] %>
+      <%= f.label :page_text, 'Texto dos pais' %><br />
+      <%= f.text_area :page_text, :style => 'width: 100%; height: 100px; margin-bottom: 10px;' %>
+      <%= submit_tag 'save', :class => 'bnt-apparence right' %>
+    <% end %>
+  </div>
+    <h3>Padrinhos</h3>
+    <div>lslslsl</div>
+</div>
