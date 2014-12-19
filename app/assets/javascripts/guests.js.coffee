@@ -2,7 +2,7 @@ $(document).on "page:load", ->
   autocomplete()
   $("#find_guest").click (event) ->
     $.ajax
-      url: "select_guest"
+      url: "selectGuest"
       type: "GET"
       data:
         data: $("#guests").val()
@@ -23,7 +23,7 @@ $(document).on "page:load", ->
 
   $("#btn_confirm").click (event) ->
     $.ajax
-      url: "confirm_this_guest"
+      url: "confirmThisGuest"
       type: "post"
       data:
         data: $("#guest_id").val()
