@@ -67,7 +67,7 @@ function autocomplete() {
 
     function fill_guests_obj() {
         try {
-            guests_obj = fill_data(guests_obj, fill_guests_obj, 'guests_list', 'guests', 'guest_autocomplete_list/');
+            guests_obj = fill_data(guests_obj, fill_guests_obj, 'guests_list', 'guests', 'guestAutocompleteList/');
         } catch(err) {
             alert(err);
         }
