@@ -51,6 +51,46 @@ function backgroundResize(){
     });
 };
 
+/* Gerencia a exibição do load e da lista de presentes */
+function hideLoadding() {
+    $('#loading').hide();
+    $('.embed-container').css("visibility", "visible");
+};
+
+/* Gerencia o comportamento dos componentes de abas e accordions */
+function accordionsAndTabsController(itensList, selectedItem) {
+    if (Array.isArray(itensList) && selectedItem) {
+        $("body").click(function(event) {
+            var clickedItem = event.target.id;
+
+            if (itensList.indexOf(clickedItem) >= 0) {
+                $('#' + selectedItem).removeClass('selected');
+                $('.' + selectedItem).removeClass('selected');
+                $('#' + clickedItem).addClass('selected');
+                $('.' + clickedItem).addClass('selected');
+                selectedItem = clickedItem;
+            }
+        });
+    } else {
+        alert("Para funcionar o metodo 'accordionsAndTabsController' precisa receber um Array de Strings com os Ids de todas as divs e o primeiro item selecionado.");
+    }
+};
+
+function initAllSliders() {
+    var textbgcss = "display:block; position:absolute; top:0px; left:0px; width:100%; height:100%; background-color:#333333; opacity:0.6; filter:alpha(opacity=60);";
+    var titlecss = "display:block; position:relative; font:bold 14px \"Lucida Sans Unicode\",\"Lucida Grande\",sans-serif,Arial; color:#fff;"
+
+    // Slider da home page
+    initSlider(0, 600, 450);
+    // Lightbox com fotos dos pais da Isa e do felipe respectivamente
+    initSlider(1, 186, 139, false, 'Classic', 'none', 'static', textbgcss, 'bottomleft', false, false, 'none', titlecss, 'Bottom bar', true);
+    initSlider(2, 186, 139, false, 'Classic', 'none', 'static', textbgcss, 'bottomleft', false, false, 'none', titlecss, 'Bottom bar', true);
+    // Lightbox com fotos dos padrinhos
+    for (i = 3; i <= 33; i++) {
+        initSlider(i, 250, 186, false, 'Classic', 'none', 'static', null, null, false, false, 'none', null, null, false);
+    }
+};
+
 /* Ajusta o tamanho da imagem de background ao redimencionar o viewport do sistema */
 $(window).on('resize', function(){
     backgroundResize();
@@ -59,44 +99,10 @@ $(window).on('resize', function(){
 /* Funções a serem inicializadas com o sistema */
 $(document).on('ready page:load', function(){
     backgroundResize();
-    homeSliderPic();
+    initAllSliders();
 });
 
-/* Gerencia a exibição do load e da lista de presentes */
-function hideLoadding() {
-    $('#loading').hide();
-    $('.embed-container').css("visibility", "visible");
-};
-
-function homeSliderPic() {
-    var options = {
-        $AutoPlay: true,        //[Optional] Whether to auto play, to enable slideshow, this option must be set to true, default value is false
-        $DragOrientation: 3     //[Optional] Orientation to drag slide, 0 no drag, 1 horizental, 2 vertical, 3 either, default value is 1 (Note that the $DragOrientation should be the same as $PlayOrientation when $DisplayPieces is greater than 1, or parking position is not 0)
-    };
-
-    var jssor_slider1 = new $JssorSlider$("slider1_container", options);
-};
-
-$(document).ready(function() {
+$(document).ready(function(){
     backgroundResize();
-    homeSliderPic();
-
-    $("#tabs").tabs();
-
-    $("#accordion").accordion({
-        heightStyle: 'content'
-    });
-
-    $('.fancybox').fancybox();
-    $(".fancybox-effects-d").fancybox({
-        padding: 0,
-        openEffect : 'elastic',
-        openSpeed  : 150,
-        closeEffect : 'elastic',
-        closeSpeed  : 150,
-        closeClick : true,
-        helpers : {
-            overlay : null
-        }
-    });
+    initAllSliders();
 });

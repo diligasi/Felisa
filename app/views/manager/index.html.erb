@@ -1,24 +1,40 @@
+<% @godparents = Hash.new %>
 <% @couple_history = $couple_history if $couple_history %>
 <% @parents_history = $parents_history if $parents_history %>
+<% @godparents[:adriano_hist] = $adriano_history if $adriano_history %>
+<% @godparents[:ana_claudia_hist] = $ana_claudia_history if $ana_claudia_history %>
+<% @godparents[:carlos_hist] = $carlos_history if $carlos_history %>
+<% @godparents[:cleiton_hist] = $cleiton_history if $cleiton_history %>
+<% @godparents[:diogo_hist] = $diogo_history if $diogo_history %>
+<% @godparents[:isabel_hist] = $isabel_history if $isabel_history %>
+<% @godparents[:isa_edi_hist] = $isa_edi_history if $isa_edi_history %>
+<% @godparents[:isis_hist] = $isis_history if $isis_history %>
+<% @godparents[:jana_al_hist] = $jana_al_history if $jana_al_history %>
+<% @godparents[:maiara_hist] = $maiara_history if $maiara_history %>
+<% @godparents[:maria_hist] = $maria_history if $maria_history %>
+<% @godparents[:murilo_hist] = $murilo_history if $murilo_history %>
+<% @godparents[:pe_milton_hist] = $pe_milton_history if $pe_milton_history %>
+<% @godparents[:rahira_hist] = $rahira_history if $rahira_history %>
 <% @users_list = $users_list if $users_list %>
 <div class="container" style="width: 80%; height: 75%;  background: rgba(68, 68, 68, .4);">
-  <div id="tabs">
-    <ul>
-      <li><a href="#tabs-1">História do casal</a></li>
-      <li><a href="#tabs-2">Gerenciar convidados</a></li>
-      <li><a href="#tabs-3">Gerenciar texto dos pais, padrinhos e das crianças</a></li>
-      <li><a href="#tabs-4">Gerenciamento de usuários administradores</a></li>
-    </ul>
-    <div id="tabs-1" class="clearfix">
+  <div class="tabContainer">
+    <!-- Labels -->
+    <div id="managerTabOne" class="tabLabel selected">História do casal</div>
+    <div id="managerTabTwo" class="tabLabel">Gerenciar convidados</div>
+    <div id="managerTabThree" class="tabLabel">Gerenciar texto dos pais, padrinhos e das crianças</div>
+    <div id="managerTabFour" class="tabLabel">Gerenciamento de usuários administradores</div>
+
+    <!-- Labels containers -->
+    <div class="tabLabelContainer managerTabOne clearfix selected">
       <%= render partial: 'manager/couple_history_manager', locals: { :content => @couple_history } %>
     </div>
-    <div id="tabs-2" class="clearfix">
+    <div class="tabLabelContainer managerTabTwo clearfix">
       <%= render partial: 'manager/guests_mnager' %>
     </div>
-    <div id="tabs-3">
-      <%= render partial: 'manager/main_people_manager', locals: { :parents => @parents_history } %>
+    <div class="tabLabelContainer managerTabThree clearfix">
+      <%= render partial: 'common/main_people_screen', locals: { :is_editable => true, :parents => @parents_history, :godparents_list => @godparents } %>
     </div>
-    <div id="tabs-4">
+    <div class="tabLabelContainer managerTabFour clearfix">
       <%= render partial: 'manager/users_manager', locals: { :users => @users_list} %>
     </div>
   </div>

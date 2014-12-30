@@ -128,6 +128,88 @@ h6 {
 }
 
 /****************************************************************************************************************
+ * Accordions and tabs
+ ****************************************************************************************************************/
+/*************************** Estilo do Accordion ***************************/
+.accordionContainer {
+    box-sizing: border-box;
+    width: 100%;
+}
+.accordionContainer .accordionLabel {
+    border: 1px solid rgb(246, 246, 246);
+    background: rgb(246, 246, 246);
+    box-sizing: border-box;
+    margin-bottom:  2px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #e78f08;
+    padding: 5px;
+    width: 100%;
+}
+.accordionContainer .accordionLabel:hover {
+    border: 1px solid #fbcb09;
+    background: #fdf5ce;
+    font-weight: bold;
+    color: #c77405;
+}
+.accordionContainer .accordionLabel.selected {
+    border: 1px solid #fbd850 !important;
+    font-weight: bold !important;
+    background: #fff !important;
+    color: #e78f08 !important;
+}
+.accordionContainer .accordionLabelContainer {
+    border: 1px solid rgb(210, 210, 210);
+    background: rgb(246, 246, 246);
+    min-height: 50px;
+    color: #7a7a7a;
+    border-top: 0;
+    padding: 10px;
+    display: none;
+}
+.accordionContainer .accordionLabelContainer.selected {
+    margin-bottom:  2px;
+    display: block;
+}
+/***************************** Estilo das Abas *****************************/
+.tabContainer {
+    background: rgb(210, 210, 210);
+    box-sizing: border-box;
+    color: #7a7a7a;
+    padding: 5px;
+    width: 100%;
+}
+.tabLabel {
+    border-bottom: 2px solid rgb(210, 210, 210);
+    background: rgb(246, 246, 246);
+    box-sizing: border-box;
+    display: inline-block;
+    cursor: pointer;
+    padding: 3px;
+}
+.tabLabel:hover {
+    background: rgb(252, 139, 68);
+    color: #fff !important;
+}
+.tabLabel.selected {
+    border-bottom: 2px solid #e78f08;
+    font-weight: bold;
+    color: #e78f08;
+}
+.tabLabelContainer {
+    background: rgb(246, 246, 246);
+    border-top: 2px solid #d2d2d2;
+    box-sizing: border-box;
+    min-height: 50px;
+    display: none;
+    padding: 5px;
+    width: 100%;
+}
+.tabLabelContainer.selected {
+    display: block !important;
+}
+
+/****************************************************************************************************************
  * Abaixo serão concatenados no ambiente de produção os estilos presentes nos arquivos scss
  *
  ****************************************************************************************************************/

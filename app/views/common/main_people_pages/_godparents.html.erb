@@ -1,0 +1,49 @@
+<% three ||= false %>
+<% if is_editable %>
+  <%= form_for editable_obj, url: save_main_people_content_path do |f| %>
+    <%= f.label 'Título (Opcional)', :style => 'float: left;' %>
+    <%= f.text_field :title %>
+    <%= f.hidden_field :page, :value => editable_obj[:page] %>
+    <%= f.label :page_text, 'Texto dos pais' %><br />
+    <%= f.cktext_area :page_text, :ckeditor => {:language => 'pt'}, :id => "#{current_person}_txt" %>
+  <% end %>
+<% else %>
+  <div style="width: <%= three ? '770px': '520px' %>; margin: 25px auto;">
+    <div id="amazingslider-wrapper-<%= slide_id %>" class="slider-gamb" style="display:inline-block;position:relative;max-width:250px;transform: rotate(-5deg);">
+      <div id="amazingslider-<%= slide_id %>" style="display:block;position:relative;margin:0 auto;width:250px;height:186px;">
+        <ul class="amazingslider-slides" style="display:none;">
+          <li>
+            <%= link_to image_tag("#{root_url}pictures/main_people/godparents/#{current_person}0.jpg", :alt => "#{current_person}0"), "#{root_url}pictures/main_people/godparents/lightbox/#{current_person}0-lightbox.jpg", :class => 'html5lightbox' %></li>
+          </li>
+        </ul>
+        <div class="amazingslider-engine"><a href="http://amazingslider.com" title="Responsive jQuery Image Slider">Responsive jQuery Image Slider</a></div>
+      </div>
+    </div>
+    <div id="amazingslider-wrapper-<%= slide_id + 1 %>" class="slider-gamb" style="display:inline-block;position:relative;max-width:250px;transform: rotate(5deg);">
+      <div id="amazingslider-<%= slide_id + 1 %>" style="display:block;position:relative;margin:0 auto;width:250px;height:186px;">
+        <ul class="amazingslider-slides" style="display:none;">
+          <li>
+            <%= link_to image_tag("#{root_url}pictures/main_people/godparents/#{current_person}1.jpg", :alt => "#{current_person}1"), "#{root_url}pictures/main_people/godparents/lightbox/#{current_person}1-lightbox.jpg", :class => 'html5lightbox' %></li>
+          </li>
+        </ul>
+        <div class="amazingslider-engine"><a href="http://amazingslider.com" title="Responsive jQuery Image Slider">Responsive jQuery Image Slider</a></div>
+      </div>
+    </div>
+    <% if three %>
+      <div id="amazingslider-wrapper-<%= slide_id + 2 %>" class="slider-gamb" style="display:inline-block;position:relative;max-width:250px;transform: rotate(-5deg);">
+        <div id="amazingslider-<%= slide_id + 2 %>" style="display:block;position:relative;margin:0 auto;width:250px;height:186px;">
+          <ul class="amazingslider-slides" style="display:none;">
+            <li>
+              <%= link_to image_tag("#{root_url}pictures/main_people/godparents/#{current_person}2.jpg", :alt => "#{current_person}2"), "#{root_url}pictures/main_people/godparents/lightbox/#{current_person}2-lightbox.jpg", :class => 'html5lightbox' %></li>
+            </li>
+          </ul>
+          <div class="amazingslider-engine"><a href="http://amazingslider.com" title="Responsive jQuery Image Slider">Responsive jQuery Image Slider</a></div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div style="margin: 0; padding: 0; width: 100%;">
+    <h4><%= "<p style='text-align:center'>#{raw(current_hist[:title])}</p>".html_safe if current_hist && current_hist[:title] %></h4>
+    <%= current_hist ? "<p style='text-align:justify'>#{raw(current_hist[:page_text])}</p>".html_safe : "<p style='text-align:center;'>Aqui entra a história dos padrinhos!</p>".html_safe %>
+  </div>
+<% end %>

@@ -1,13 +1,14 @@
 <style>
     div.home {
         width: 100%;
-        height: 280px;
+        /*height: 280px;*/
+        height: 135px;
         position: relative;
         color: #FFA526 !important;
         z-index: -1;
     }
     div.home:after {
-        /*background: url(<%= image_url 'home-bg.png' %>);*/
+        /*background: url(<%#= image_url 'home-bg.png' %>);*/
         /*background-color: rgba(152, 153, 151, .85);*/
         /*background-repeat: no-repeat;*/
         /*background-position-x: 50%;*/
@@ -15,7 +16,8 @@
 
         opacity: 0.85;
         width: 100%;
-        height: 280px;
+        /*height: 280px;*/
+        height: 135px;
         top: 42;
         left: 0;
         position: absolute;
@@ -24,7 +26,7 @@
     }
     div.home .title {
         /*text-align: center;*/
-        margin-left: 118px;
+        margin-left: 205px;
         /*width: 100%;*/
         font-weight: lighter;
         position: absolute;
@@ -46,40 +48,6 @@
         line-height: 45px;
         font-weight: bold;
     }
-
-    div.slider {
-        width: 693px;
-        height: 462px;
-
-        border-style: solid;
-        border-width: 138px 210px 243px 295px;
-        -moz-border-image: url(<%= image_url 'molde.png' %>) 138 210 243 295 stretch;
-        -webkit-border-image: url(<%= image_url 'molde.png' %>) 138 210 243 295 stretch;
-        -o-border-image: url(<%= image_url 'molde.png' %>) 138 210 243 295 stretch;
-        border-image: url(<%= image_url 'molde.png' %>) 138 210 243 295 fill stretch;
-
-        margin: 0 auto;
-    }
-
-    .multiple-border {
-        -webkit-box-shadow:
-        0px 0px 0px 2px rgba(0,0,0,0.6),
-        0px 0px 0px 14px #fff,
-        0px 0px 0px 18px rgba(0,0,0,0.2),
-        6px 6px 8px 17px #555;
-
-        -moz-box-shadow:
-        0px 0px 0px 2px rgba(0,0,0,0.6),
-        0px 0px 0px 14px #fff,
-        0px 0px 0px 18px rgba(0,0,0,0.2),
-        6px 6px 8px 17px #555;
-
-        box-shadow:
-        0px 0px 0px 2px rgba(0,0,0,0.6),
-        0px 0px 0px 14px #fff,
-        0px 0px 0px 18px rgba(0,0,0,0.2),
-        6px 6px 8px 17px #555;
-    }
 </style>
 
 <div class="home">
@@ -91,20 +59,26 @@
     </div>
 </div>
 <br />
-<!--<div class="container clearfix">-->
-    <div style="width: 100%; display: inline-block; margin: -145px auto 0 auto;">
-      <div id="slider1_container" class="multiple-border" style="position: relative; top: 0px; left: 0px; width: 600px; height: 450px; margin: 0 auto;">
-      <!--<div id="slider1_container" class="multiple-border" style="position: relative; top: 0px; left: 0px; width: 600px; height: 450px; margin: 0 auto; margin-top: -105px;">-->
-        <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 600px; height: 450px; overflow: hidden;">
-        <!--<div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 600px; height: 450px; overflow: hidden; margin-top: 105px;">-->
-          <% files_from_directory("#{Rails.root}/public/pictures/casal/*").each do |pic| %>
-            <% if pic.split('/').last.index('.db').nil? %>
-              <div><%= image_tag "#{root_url}pictures/casal/#{pic.split('/').last}", :u => 'image' %></div>
+
+<div id="amazingslider-wrapper-0" class="slider-gamb" style="display:block;position:relative;max-width:600px;margin:0px auto 57px;">
+    <div id="amazingslider-0" style="display:block;position:relative;margin:0 auto;">
+        <ul class="amazingslider-slides" style="display:none;">
+            <% files_from_directory("#{Rails.root}/public/pictures/casal/*").each do |pic| %>
+                <% next unless pic.split('/').last.index('lightbox').nil? %>
+                <% next unless pic.split('/').last.index('thumbnails').nil? %>
+                <% if pic.split('/').last.index('.db').nil? %>
+                    <li><%= link_to image_tag("#{root_url}pictures/casal/#{pic.split('/').last}"), "#{root_url}pictures/casal/#{pic.split('/').last}", :class => 'html5lightbox' %></li>
+                <% end %>
             <% end %>
-          <% end %>
-        </div>
-      </div>
+        </ul>
+        <ul class="amazingslider-thumbnails" style="display:none;">
+            <% files_from_directory("#{Rails.root}/public/pictures/casal/thumbnails/*").each do |pic| %>
+                <% if pic.split('/').last.index('.db').nil? %>
+                    <li><%= image_tag "#{root_url}pictures/casal/thumbnails/#{pic.split('/').last}" %></li>
+                <% end %>
+            <% end %>
+        </ul>
+        <div class="amazingslider-engine"><%= link_to 'Responsive Image Slider jQuery', 'http://amazingslider.com', :title => 'Responsive Image Slider jQuery' %></div>
     </div>
-    <br /><br />
-<!--</div>-->
+</div>
 

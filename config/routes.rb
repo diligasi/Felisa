@@ -20,7 +20,8 @@ Rails.application.routes.draw do
   match '/acesso'                 =>  'sessions#new',                         via:  'get',          :as =>  :login
   match '/upload'                 =>  'manager#guests',                       via:  'post',         :as =>  :upload
   match '/textoNossaHistoria'     =>  'manager#save_couple_history_content',  via:  %w(PATCH post), :as =>  :save_couple_history_content
-  match '/textoNossasPais'        =>  'manager#save_parents_history_content', via:  %w(PATCH post), :as =>  :save_main_people_content
+  # match '/textoNossasPais'        =>  'manager#save_parents_history_content', via:  %w(PATCH post), :as =>  :save_main_people_content
+  match '/textoNossasPais'        =>  'manager#save_main_people_content',     via:  %w(PATCH post), :as =>  :save_main_people_content
   match '/sair'                   =>  'sessions#destroy',                     via:  'delete',       :as =>  :signout
   match '/confirmar'              =>  'guests#confirm',                       via:  %w(get post),   :as =>  :confirmation
   match '/guestAutocompleteList'  =>  'guests#guest_autocomplete_list',       via:  %w(get post)

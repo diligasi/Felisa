@@ -10,6 +10,48 @@ class ManagerController < ApplicationController
     $parents_history = ContentText.where(:page => 'parent_history').first
     $parents_history = create_if_needed($parents_history, 'parent_history')
 
+    $adriano_history = ContentText.where(:page => 'adriano_history').first
+    $adriano_history = create_if_needed($adriano_history, 'adriano_history')
+
+    $ana_claudia_history = ContentText.where(:page => 'ana_claudia_history').first
+    $ana_claudia_history = create_if_needed($ana_claudia_history, 'ana_claudia_history')
+
+    $carlos_history = ContentText.where(:page => 'carlos_history').first
+    $carlos_history = create_if_needed($carlos_history, 'carlos_history')
+
+    $cleiton_history = ContentText.where(:page => 'cleiton_history').first
+    $cleiton_history = create_if_needed($cleiton_history, 'cleiton_history')
+
+    $diogo_history = ContentText.where(:page => 'diogo_history').first
+    $diogo_history = create_if_needed($diogo_history, 'diogo_history')
+
+    $isabel_history = ContentText.where(:page => 'isabel_history').first
+    $isabel_history = create_if_needed($isabel_history, 'isabel_history')
+
+    $isa_edi_history = ContentText.where(:page => 'isa_edi_history').first
+    $isa_edi_history = create_if_needed($isa_edi_history, 'isa_edi_history')
+
+    $isis_history = ContentText.where(:page => 'isis_history').first
+    $isis_history = create_if_needed($isis_history, 'isis_history')
+
+    $jana_al_history = ContentText.where(:page => 'jana_al_history').first
+    $jana_al_history = create_if_needed($jana_al_history, 'jana_al_history')
+
+    $maiara_history = ContentText.where(:page => 'maiara_history').first
+    $maiara_history = create_if_needed($maiara_history, 'maiara_history')
+
+    $maria_history = ContentText.where(:page => 'maria_history').first
+    $maria_history = create_if_needed($maria_history, 'maria_history')
+
+    $murilo_history = ContentText.where(:page => 'murilo_history').first
+    $murilo_history = create_if_needed($murilo_history, 'murilo_history')
+
+    $pe_milton_history = ContentText.where(:page => 'pe_milton_history').first
+    $pe_milton_history = create_if_needed($pe_milton_history, 'pe_milton_history')
+
+    $rahira_history = ContentText.where(:page => 'rahira_history').first
+    $rahira_history = create_if_needed($rahira_history, 'rahira_history')
+
     $users_list = AccessUsers.all
   end
 
@@ -21,11 +63,13 @@ class ManagerController < ApplicationController
     end
   end
 
-  def save_parents_history_content
-    ContentText.delete_all(:page => 'parent_history')
-    @parent_history = ContentText.new(content_texts_params)
-    if @parent_history.save
-      render :html => 'Salvo'
+  # def save_parents_history_content
+  def save_main_people_content
+    # ContentText.delete_all(:page => 'parent_history')
+    ContentText.delete_all(:page => content_texts_params[:page])
+    @new_content = ContentText.new(content_texts_params)
+    if @new_content.save
+      redirect_to main_people_path
     end
   end
 
