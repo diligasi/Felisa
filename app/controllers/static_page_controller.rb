@@ -43,6 +43,10 @@ class StaticPageController < ApplicationController
     @murilo_hist = ContentText.where("page = 'murilo_history'").first
     @pe_milton_hist = ContentText.where("page = 'pe_milton_history'").first
     @rahira_hist = ContentText.where("page = 'rahira_history'").first
+    @antonio_hist = ContentText.where("page = 'antonio_history'").first
+    @maria_luiza_hist = ContentText.where("page = 'maria_luiza_history'").first
+    @sobrinhos_hist = ContentText.where("page = 'sobrinhos_history'").first
+    @raquel_hist = ContentText.where("page = 'raquel_history'").first
   end
 
   private

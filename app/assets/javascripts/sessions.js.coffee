@@ -17,7 +17,8 @@ $(document).on "submit", "#login_form", ->
     complete: (data) ->
       if data.status is 200
         document.write data.responseText
-        $( "#tabs" ).tabs()
+        initTabs()
+        initAccordion()
       else
         alert data.status
         $(".login-error-msg").html "Usuário ou senha inválido."

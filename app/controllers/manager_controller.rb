@@ -52,6 +52,18 @@ class ManagerController < ApplicationController
     $rahira_history = ContentText.where(:page => 'rahira_history').first
     $rahira_history = create_if_needed($rahira_history, 'rahira_history')
 
+    $antonio_history = ContentText.where(:page => 'antonio_history').first
+    $antonio_history = create_if_needed($antonio_history, 'antonio_history')
+
+    $maria_luiza_history = ContentText.where(:page => 'maria_luiza_history').first
+    $maria_luiza_history = create_if_needed($maria_luiza_history, 'maria_luiza_history')
+
+    $sobrinhos_history = ContentText.where(:page => 'sobrinhos_history').first
+    $sobrinhos_history = create_if_needed($sobrinhos_history, 'sobrinhos_history')
+
+    $raquel_history = ContentText.where(:page => 'raquel_history').first
+    $raquel_history = create_if_needed($raquel_history, 'raquel_history')
+
     $users_list = AccessUsers.all
   end
 

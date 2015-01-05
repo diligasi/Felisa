@@ -86,9 +86,25 @@ function initAllSliders() {
     initSlider(1, 186, 139, false, 'Classic', 'none', 'static', textbgcss, 'bottomleft', false, false, 'none', titlecss, 'Bottom bar', true);
     initSlider(2, 186, 139, false, 'Classic', 'none', 'static', textbgcss, 'bottomleft', false, false, 'none', titlecss, 'Bottom bar', true);
     // Lightbox com fotos dos padrinhos
-    for (i = 3; i <= 33; i++) {
+    for (i = 3; i <= 45; i++) {
         initSlider(i, 250, 186, false, 'Classic', 'none', 'static', null, null, false, false, 'none', null, null, false);
     }
+};
+
+function initTabs() {
+    var managerTabsList, tabsList, kidsList;
+    managerTabsList = ["managerTabOne", "managerTabTwo", "managerTabThree", "managerTabFour"];
+    accordionsAndTabsController(managerTabsList, "managerTabOne");
+    tabsList = ["tabOne", "tabTwo", "tabThree", "tabFour", "tabFive", "tabSix", "tabSeven", "tabEight", "tabNine", "tabTen", "tabEleven", "tabTwelve", "tabThirteen", "tabFourteen"];
+    kidsList = ["tabFifteen", "tabSixteen", "tabSeventeen", "tabEighteen"];
+    accordionsAndTabsController(tabsList, "tabOne");
+    accordionsAndTabsController(kidsList, "tabFifteen");
+};
+
+function initAccordion() {
+    var accordionList;
+    accordionList = ["accordionOne", "accordionTwo", "accordionThree"];
+    accordionsAndTabsController(accordionList, "accordionOne");
 };
 
 /* Ajusta o tamanho da imagem de background ao redimencionar o viewport do sistema */

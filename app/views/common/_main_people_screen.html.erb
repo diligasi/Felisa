@@ -57,28 +57,50 @@
           <%= render partial: 'common/main_people_pages/godparents', locals: { :is_editable => is_editable, :slide_id => 21, :current_person => 'jana-al', :current_hist => @jana_al_hist, :editable_obj => godparents_list ? godparents_list[:jana_al_hist] : nil } %>
       </div>
       <div class="tabLabelContainer tabTen">
-          <%= render partial: 'common/main_people_pages/godparents', locals: { :is_editable => is_editable, :slide_id => 23, :current_person => 'maiara', :current_hist => @maiara_hist, :editable_obj => godparents_list ? godparents_list[:maiara_hist] : nil, :three => true } %>
+          <%= render partial: 'common/main_people_pages/godparents', locals: { :is_editable => is_editable, :slide_id => 23, :current_person => 'maiara', :current_hist => @maiara_hist, :editable_obj => godparents_list ? godparents_list[:maiara_hist] : nil } %>
       </div>
       <div class="tabLabelContainer tabEleven">
-          <%= render partial: 'common/main_people_pages/godparents', locals: { :is_editable => is_editable, :slide_id => 26, :current_person => 'maria', :current_hist => @maria_hist, :editable_obj => godparents_list ? godparents_list[:maria_hist] : nil } %>
+          <%= render partial: 'common/main_people_pages/godparents', locals: { :is_editable => is_editable, :slide_id => 25, :current_person => 'maria', :current_hist => @maria_hist, :editable_obj => godparents_list ? godparents_list[:maria_hist] : nil } %>
       </div>
       <div class="tabLabelContainer tabTwelve">
-          <%= render partial: 'common/main_people_pages/godparents', locals: { :is_editable => is_editable, :slide_id => 28, :current_person => 'murilo', :current_hist => @murilo_hist, :editable_obj => godparents_list ? godparents_list[:murilo_hist] : nil } %>
+          <%= render partial: 'common/main_people_pages/godparents', locals: { :is_editable => is_editable, :slide_id => 27, :current_person => 'murilo', :current_hist => @murilo_hist, :editable_obj => godparents_list ? godparents_list[:murilo_hist] : nil } %>
       </div>
       <div class="tabLabelContainer tabThirteen">
-          <%= render partial: 'common/main_people_pages/godparents', locals: { :is_editable => is_editable, :slide_id => 30, :current_person => 'pe-milton', :current_hist => @pe_milton_hist, :editable_obj => godparents_list ? godparents_list[:pe_milton_hist] : nil } %>
+          <%= render partial: 'common/main_people_pages/godparents', locals: { :is_editable => is_editable, :slide_id => 29, :current_person => 'pe-milton', :current_hist => @pe_milton_hist, :editable_obj => godparents_list ? godparents_list[:pe_milton_hist] : nil } %>
       </div>
       <div class="tabLabelContainer tabFourteen">
-          <%= render partial: 'common/main_people_pages/godparents', locals: { :is_editable => is_editable, :slide_id => 32, :current_person => 'rahira', :current_hist => @rahira_hist, :editable_obj => godparents_list ? godparents_list[:rahira_hist] : nil } %>
+          <%= render partial: 'common/main_people_pages/godparents', locals: { :is_editable => is_editable, :slide_id => 31, :current_person => 'rahira', :current_hist => @rahira_hist, :editable_obj => godparents_list ? godparents_list[:rahira_hist] : nil } %>
       </div>
     </div>
   </div>
 
   <div id="accordionThree" class="accordionLabel"><span class="icon-arrow-right left" style="display: inline-block; margin: 3px 5px 0 0;"></span> As crianças</div>
   <div class="accordionLabelContainer accordionThree">
-    <div style="width: 100%;">
-      <div style="width: 125px; margin: 0 auto;"><img src="http://webspace.webring.com/people/ea/animetoygirl/under_construction_gifs/Jackhammer.gif" width="125px" height="125px" /></div>
-      <p style="width: 100%; text-align: center;">Esta área estará disponível em breve!</p>
+    <!--<div style="width: 100%;">-->
+      <!--<div style="width: 125px; margin: 0 auto;"><img src="http://webspace.webring.com/people/ea/animetoygirl/under_construction_gifs/Jackhammer.gif" width="125px" height="125px" /></div>-->
+      <!--<p style="width: 100%; text-align: center;">Esta área estará disponível em breve!</p>-->
+    <!--</div>-->
+    <!-- Abas das crianças -->
+    <div class="tabContainer">
+      <!-- Labels -->
+      <div id="tabFifteen" class="tabLabel selected">Antônio</div>
+      <div id="tabSixteen" class="tabLabel">Maria Luiza</div>
+      <div id="tabSeventeen" class="tabLabel">Mateus, Lucas e Davi</div>
+      <div id="tabEighteen" class="tabLabel">Rachel</div>
+
+      <!-- Labels containers -->
+      <div class="tabLabelContainer tabFifteen clearfix selected">
+        <%= render partial: 'common/main_people_pages/godparents', locals: { :is_editable => is_editable, :slide_id => 33, :current_person => 'antonio', :current_hist => @antonio_hist, :editable_obj => godparents_list ? godparents_list[:antonio_hist] : nil } %>
+      </div>
+      <div class="tabLabelContainer tabSixteen clearfix">
+        <%= render partial: 'common/main_people_pages/godparents', locals: { :is_editable => is_editable, :slide_id => 35, :current_person => 'maria-luiza', :current_hist => @maria_luiza_hist, :editable_obj => godparents_list ? godparents_list[:maria_luiza_hist] : nil } %>
+      </div>
+      <div class="tabLabelContainer tabSeventeen clearfix">
+        <%= render partial: 'common/main_people_pages/godparents', locals: { :is_editable => is_editable, :slide_id => 37, :current_person => 'sobrinhos', :current_hist => @sobrinhos_hist, :editable_obj => godparents_list ? godparents_list[:sobrinhos_hist] : nil, :three => true, :nephews => true } %>
+      </div>
+      <div class="tabLabelContainer tabEighteen clearfix">
+        <%= render partial: 'common/main_people_pages/godparents', locals: { :is_editable => is_editable, :slide_id => 43, :current_person => 'raquel', :current_hist => @raquel_hist, :editable_obj => godparents_list ? godparents_list[:raquel_hist] : nil, :three => true } %>
+      </div>
     </div>
   </div>
 </div>
