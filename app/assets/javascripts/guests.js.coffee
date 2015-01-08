@@ -4,6 +4,7 @@ $(document).on "page:load", ->
     $.ajax
       url: "selectGuest"
       type: "GET"
+      contentType: "application/json; charset=utf-8"
       data:
         data: $("#guests").val()
 
