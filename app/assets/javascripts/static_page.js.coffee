@@ -7,6 +7,7 @@ $(document).on "page:load", ->
   $(".embed-container").height h
   $("#presents-embed").height h
   initAccordion()
+  $("#tabTwoCeremony").on "click", reloadMap
   return
 
 $(document).ready ->
@@ -14,4 +15,13 @@ $(document).ready ->
   $(".embed-container").height h
   $("#presents-embed").height h
   initAccordion()
+  $("#tabTwoCeremony").on "click", reloadMap
+  return
+
+reloadMap = ->
+  if window.notLoaded
+    $("#maisonMap").attr "src", (i, val) ->
+      val
+    $("#maisonMap").fadeIn 9000
+#    window.notLoaded = false
   return

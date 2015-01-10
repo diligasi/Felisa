@@ -16,6 +16,9 @@
 //= require turbolinks
 //= require_tree .
 
+function initGlobalVariables() {
+    window.notLoaded = true;
+}
 
 /* Ajusta o tamanho da imagem no background */
 function backgroundResize(){
@@ -92,13 +95,15 @@ function initAllSliders() {
 };
 
 function initTabs() {
-    var managerTabsList, tabsList, kidsList;
-    managerTabsList = ["managerTabOne", "managerTabTwo", "managerTabThree", "managerTabFour"];
-    accordionsAndTabsController(managerTabsList, "managerTabOne");
+    var managerTabsList, tabsList, kidsList, ceremonyTabs;
     tabsList = ["tabOne", "tabTwo", "tabThree", "tabFour", "tabFive", "tabSix", "tabSeven", "tabEight", "tabNine", "tabTen", "tabEleven", "tabTwelve", "tabThirteen", "tabFourteen"];
+    managerTabsList = ["managerTabOne", "managerTabTwo", "managerTabThree", "managerTabFour"];
+    ceremonyTabs = ["tabOneCeremony", "tabTwoCeremony", "tabThreeCeremony"];
     kidsList = ["tabFifteen", "tabSixteen", "tabSeventeen", "tabEighteen"];
-    accordionsAndTabsController(tabsList, "tabOne");
+    accordionsAndTabsController(managerTabsList, "managerTabOne");
+    accordionsAndTabsController(ceremonyTabs, "tabOneCeremony");
     accordionsAndTabsController(kidsList, "tabFifteen");
+    accordionsAndTabsController(tabsList, "tabOne");
 };
 
 function initAccordion() {
@@ -119,6 +124,7 @@ $(document).on('ready page:load', function(){
 });
 
 $(document).ready(function(){
+    initGlobalVariables();
     backgroundResize();
     initAllSliders();
 });
