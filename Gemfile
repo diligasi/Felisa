@@ -51,6 +51,11 @@ end
 
 group :production do
   gem 'rails_12factor'
+  gem 'newrelic_rpm'
+
+  platforms :ruby do # linux
+    gem 'unicorn'
+  end
 
   # Use postgresql as the database for Active Record
   gem 'pg'

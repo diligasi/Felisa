@@ -13,10 +13,11 @@
  * Navegação (Menu da aplicação)
  *******************************************************************************************************/
 #page-menu {
-  width: 100%;
+//  width: 100%;
   height: 100%;
   position: absolute;
   bottom: 0;
+  right: 0;
 }
 #menu-container {
   display: inline-block;
