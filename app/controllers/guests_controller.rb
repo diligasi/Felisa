@@ -79,7 +79,8 @@ class GuestsController < ApplicationController
   end
 
   def select_guest
-    @guest_to_confirm = Guests.where("upper(name) like '%#{params[:data].upcase}%'").first
+    guest_name = removeRepetition(params[:data].gsub(/[^a-zA-Z\d\s:]/, '%'))
+    @guest_to_confirm = Guests.where("upper(name) like '%#{guest_name.upcase}%'").first
 
     render :json => @guest_to_confirm
   end
@@ -108,5 +109,14 @@ class GuestsController < ApplicationController
 
     def go_to_login_if_needed
       redirect_to login_path unless logged_in?
+    end
+
+    def removeRepetition(arr)
+      result = ''
+      for i in 0...arr.size
+        next if i != 0 && arr[i] == arr[i - 1]
+        result += arr[i]
+      end
+      return result
     end
 end
