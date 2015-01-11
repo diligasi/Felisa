@@ -80,7 +80,7 @@ class GuestsController < ApplicationController
 
   def select_guest
     guest_name = removeRepetition(params[:data].gsub(/[^a-zA-Z\d\s:]/, '%'))
-    @guest_to_confirm = Guests.where("upper(name) like '%#{guest_name.upcase}%'").first
+    @guest_to_confirm = Guests.where("upper(name) like '#{guest_name.upcase}%'").first
 
     render :json => @guest_to_confirm
   end
