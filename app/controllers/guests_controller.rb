@@ -79,7 +79,7 @@ class GuestsController < ApplicationController
   end
 
   def select_guest
-    guest_name = removeRepetition(params[:data].gsub(/[^a-zA-Z\d\s:]/, '%'))
+    guest_name = removeRepetition(params[:data].gsub(/[^a-zA-Z\s]/, '%'))
     @guest_to_confirm = Guests.where("upper(name) like '#{guest_name.upcase}%'").first
 
     render :json => @guest_to_confirm
@@ -114,7 +114,7 @@ class GuestsController < ApplicationController
     def removeRepetition(arr)
       result = ''
       for i in 0...arr.size
-        next if i != 0 && arr[i] == arr[i - 1]
+        next if i != 0 && arr[i] == arr[i - 1] && arr[i] == '%'
         result += arr[i]
       end
       return result
