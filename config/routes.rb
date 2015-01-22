@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   # match '/textoNossasPais'        =>  'manager#save_parents_history_content', via:  %w(PATCH post), :as =>  :save_main_people_content
   match '/textoNossasPais'        =>  'manager#save_main_people_content',     via:  %w(PATCH post), :as =>  :save_main_people_content
   match '/sair'                   =>  'sessions#destroy',                     via:  'delete',       :as =>  :signout
-  match '/confirmar'              =>  'guests#confirm',                       via:  %w(get post),   :as =>  :confirmation
+  # match '/confirmar'              =>  'guests#confirm',                       via:  %w(get post),   :as =>  :confirmation
   match '/guestAutocompleteList'  =>  'guests#guest_autocomplete_list',       via:  %w(get post)
   match '/selectGuest'            =>  'guests#select_guest',                  via:  %w(get post)
   match '/confirmThisGuest'       =>  'guests#confirm_this_guest',            via:  'post'
