@@ -8,7 +8,7 @@ module ApplicationHelper
     # regex = '^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/[12][0-9]{3}$ '
 
     if today == date
-      return "#{date.strftime('%d/%m/%Y')}\nÉ Hoje!!! =D".gsub(/\n/, '<br />').html_safe
+      return "#{date.strftime('%d/%m/%Y')}\nÉ Hoje!!!".gsub(/\n/, '<br />').html_safe
     elsif today < date
       days_before = date - today
       return "#{date.strftime('%d/%m/%Y')}\nFaltam #{days_before.to_i} #{'dia'.pluralize(days_before)}.".gsub(/\n/, '<br />').html_safe
